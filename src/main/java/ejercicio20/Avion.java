@@ -11,12 +11,16 @@ import java.util.Arrays;
  *
  * @author raquel
  */
-public class ListaAsientos {
+public class Avion {
 
+    private int numFilas;
+    private int numColumnas;
     private Asiento[][] listaAsientos;
 
     //el avion tiene 25 filas de 4 asientos cada una
-    public ListaAsientos() {
+    public Avion(int numFilas, int numColumnas) {
+        this.numFilas = numFilas;
+        this.numColumnas = numColumnas;
         //poner aqui el result de la lista
         this.listaAsientos = inicializaLista();
 
@@ -25,7 +29,7 @@ public class ListaAsientos {
     //llenar lista
     public Asiento[][] inicializaLista() {
 
-        Asiento[][] lista = new Asiento[25][4];
+        Asiento[][] lista = new Asiento[numFilas][numColumnas];
 
         for (int i = 0; i < lista.length; i++) {
             for (int j = 0; j < lista[i].length; j++) {
@@ -44,10 +48,30 @@ public class ListaAsientos {
         this.listaAsientos = listaAsientos;
     }
 
+    public int getNumFilas() {
+        return numFilas;
+    }
+
+    public void setNumFilas(int numFilas) {
+        this.numFilas = numFilas;
+    }
+
+    public int getNumColumnas() {
+        return numColumnas;
+    }
+
+    public void setNumColumnas(int numColumnas) {
+        this.numColumnas = numColumnas;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + Arrays.deepHashCode(this.listaAsientos);
+        hash = 43 * hash + this.numFilas;
+        hash = 43 * hash + this.numColumnas;
+        hash = 43 * hash + Arrays.deepHashCode(this.listaAsientos);
         return hash;
     }
 
@@ -62,7 +86,13 @@ public class ListaAsientos {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final ListaAsientos other = (ListaAsientos) obj;
+        final Avion other = (Avion) obj;
+        if (this.numFilas != other.numFilas) {
+            return false;
+        }
+        if (this.numColumnas != other.numColumnas) {
+            return false;
+        }
         if (!Arrays.deepEquals(this.listaAsientos, other.listaAsientos)) {
             return false;
         }
@@ -71,7 +101,7 @@ public class ListaAsientos {
 
     @Override
     public String toString() {
-        return "ListaAsientos{" + "listaAsientos=" + listaAsientos + '}';
+        return "Avion{" + "numFilas=" + numFilas + ", numColumnas=" + numColumnas + ", listaAsientos=" + listaAsientos + '}';
     }
 
     //reservar un asiento
