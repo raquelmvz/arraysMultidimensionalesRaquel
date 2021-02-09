@@ -22,8 +22,6 @@ public class Asiento {
         this.disponible = disponible.DISPONIBLE;
     }
 
-
-
     public Disponibilidad getDisponibilidad() {
         return disponible;
     }
@@ -34,6 +32,10 @@ public class Asiento {
 
     public void setVendido() {
         this.disponible = disponible.VENDIDO;
+    }
+
+    public boolean isDisponible() {
+        return this.disponible.equals(Disponibilidad.DISPONIBLE);
     }
 
     @Override
