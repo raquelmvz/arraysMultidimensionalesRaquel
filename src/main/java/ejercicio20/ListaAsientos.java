@@ -77,26 +77,19 @@ public class ListaAsientos {
     //reservar un asiento
     public void reservarAsiento(int fila, int asiento) {
 
-        for (int i = 0; i < listaAsientos.length; i++) {
-            for (int j = 0; j < listaAsientos[i].length; j++) {
-                if (i == (fila - 1) && j == (asiento - 1) && listaAsientos[i][j].isDisponible()) {
-                    listaAsientos[i][j].setVendido();
+        //si el asiento esta disponible
+        if (listaAsientos[fila - 1][asiento - 1].isDisponible()) {
 
-                }
-            }
+            listaAsientos[fila - 1][asiento - 1].setVendido();
         }
+
     }
 
     //cancelar asiento
     public void cancelarAsiento(int fila, int asiento) {
-        for (int i = 0; i < listaAsientos.length; i++) {
-            for (int j = 0; j < listaAsientos[i].length; j++) {
-                if (i == (fila - 1) && j == (asiento - 1)) {
-                    listaAsientos[i][j].setDisponible();
 
-                }
-            }
-        }
+        listaAsientos[fila - 1][asiento - 1].setDisponible();
+
     }
 
     //mostrar lista asientos completa
@@ -109,36 +102,17 @@ public class ListaAsientos {
         }
     }
 
-//    //imprimir asientos disponibles
-//    public void imprimirDisponibles() {
-//        for (int i = 0; i < listaAsientos.length; i++) {
-//            for (int j = 0; j < listaAsientos[i].length; j++) {
-//                System.out.println("[Fila: " + (i + 1) + "]");
-//                if (listaAsientos[i][j].isDisponible()) {
-//                    System.out.println("        [Asiento: " + (j + 1) + "] = " + listaAsientos[i][j].getDisponibilidad());
-//                }
-//
-//            }
-//        }
-//    }
     //imprimir disponibles en una fila
     public void imprimirDisponiblesFila(int fila) {
 
-        for (int i = 0; i < listaAsientos.length; i++) {
+        System.out.println("[Fila: " + fila + "]");
 
-            if (i == (fila - 1)) {
-                System.out.println("[Fila: " + (i + 1) + "]");
-
-                for (int j = 0; j < listaAsientos[i].length; j++) {
-
-                    if (i == (fila - 1) && listaAsientos[i][j].isDisponible()) {
-                        System.out.println("        [Asiento: " + (j + 1) + "] = " + listaAsientos[i][j].getDisponibilidad());
-                    }
-
-                }
+        for (int j = 0; j < listaAsientos[fila - 1].length; j++) {
+            if (listaAsientos[fila - 1][j].isDisponible()) {
+                System.out.println("\t\t[Asiento: " + (j + 1) + "] = " + listaAsientos[fila - 1][j].getDisponibilidad());
             }
-
         }
+
     }
 
     //devuelve true si en la fila hay algun asiento disponible
@@ -146,20 +120,12 @@ public class ListaAsientos {
 
         boolean asientosDisponibles = false;
 
-        for (int i = 0; i < listaAsientos.length; i++) {
-
-            if (i == (fila - 1)) {
-
-                for (int j = 0; j < listaAsientos[i].length; j++) {
-
-                    if (listaAsientos[i][j].isDisponible()) {
-                        asientosDisponibles = true;
-                    } else {
-                        asientosDisponibles = false;
-                    }
-                }
+        for (int j = 0; j < listaAsientos[fila - 1].length; j++) {
+            if (listaAsientos[fila - 1][j].isDisponible()) {
+                asientosDisponibles = true;
+            } else {
+                asientosDisponibles = false;
             }
-
         }
 
         return asientosDisponibles;

@@ -108,18 +108,7 @@ public class PruebaAsientos {
 
                 case 4:
 
-                    String respuesta;
-
-                    do {
-
-                        System.out.println("¿Repetir? (Sí o No):");
-                        entradaTeclado.nextLine();
-                        respuesta = entradaTeclado.nextLine();
-                    } while (!respuesta.equalsIgnoreCase("no") && !respuesta.equalsIgnoreCase("si"));
-
-                    // Si la respuesta es no --> repetir: false
-                    // Si la respuesta es si --> repetir: true
-                    repetir = !respuesta.equalsIgnoreCase("no");
+                    repetir = false;
 
             }
 
