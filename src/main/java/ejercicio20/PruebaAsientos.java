@@ -12,6 +12,9 @@ import java.util.Scanner;
  * @author raquel
  */
 public class PruebaAsientos {
+    
+    //mejora
+    //guardar aviones en una lista y buscarlos para ejecutar los metodos
 
     static boolean repetir = true; //el programa se repite
     static Scanner entradaTeclado = new Scanner(System.in);
