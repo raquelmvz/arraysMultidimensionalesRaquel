@@ -54,6 +54,9 @@ public class PruebaPila {
         pila3.rellenar(pilaSacada);
         pila3.mostrarPila();
 
+        System.out.println("\nMostrar la pila 2 vacía: ");
+        pila2.mostrarPila();
+
     }
 
 }

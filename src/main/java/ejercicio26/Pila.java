@@ -23,7 +23,7 @@ public class Pila {
         //la pila se inicializa vacia
         this.pila = new ArrayList<>();
     }
-    
+
     //constructor por defecto
     public Pila() {
         this.pila = new ArrayList<>();
@@ -45,7 +45,7 @@ public class Pila {
 
         //elimino y devuelvo el elemento en la ultima
         //pos de la lista
-        return pila.remove(pila.size()-1);
+        return pila.remove(pila.size() - 1);
     }
 
     //saber si la pila esta vacia
@@ -67,7 +67,7 @@ public class Pila {
 
     //mostrar los elementos de la pila
     public void mostrarPila() {
-        for (int i = pila.size()-1; i >= 0; i--) {
+        for (int i = pila.size() - 1; i >= 0; i--) {
             System.out.println("___");
             System.out.println(" " + pila.get(i));
         }
@@ -88,17 +88,17 @@ public class Pila {
             this.push(array[i]);
         }
     }
-    
+
     //sacar los elementos de la pila y devolverlos
     //en un array de char
     //la pila se vacia
     public char[] sacarElementos() {
         char[] array = new char[tamMaximo];
-        
-        for(int i=0;i<array.length;i++) {
+
+        for (int i = 0; i < array.length; i++) {
             array[i] = this.pop();
         }
-        
+
         return array;
 
     }
